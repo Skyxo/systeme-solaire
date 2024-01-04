@@ -1,0 +1,84 @@
+09/12/2021
+Problème d'actualisation : un corps s'actualise avant l'autre,
+Problème de calcul de l'accélération, de la vitesse et par conséquent de la position : Ici, on calcul d'abord Ax Ay puis on calcul A. 
+On devrait d'abord calculer A avec (MasseObject*G)/(distance**2)
+
+10/12/2021 : 20:20
+Avant je calculais la primitive de la position avec la vitesse qui venait d'être calculée. Du coup l'accélération s'appliquait deux fois !
+Maintenant j'ai pris la vitesse de l'objet à l'instant T et ça semble aller beaucoup mieux.
+
+10/12/2021 : 21:15
+Step est en secondes ! Je me demandais comment faire pour increase step et en même temps que la simulation se stop quand step = 0. 
+Lorsqu'il était égal à 1 je trouvais que le programme avançait trop lentement et je croyais que c'était une erreur
+Mais step est en secondes !
+
+10/12/2021 : 21:47
+Je crois que je commence à saisir le pas de temps et les problèmes qu'il apporte.
+Plus le pas de temps sera élevé, plus l'imprecision sera grande. Plus il est court, plus la trajectoire est précise.
+Sur la révolution de la lune par exemple, en mettant un pas de temps élevé, on voit qu'elle s'éloigne de la Terre, mais elle s'éloigne d'une distance constante, proportionnelle au
+pas de temps.
+Ma petite victoire personnelle ce soir, c'est d'avoir trouvé (en mettant un pas de temps relativement faible) que la période de révolution de la lune est d'environ 27 jours (j'ai
+en fait trouvé 27.9, Mais on va dire que c'est à cause de l'imprecision du pas de temps.)
+
+12/12/2021 : 13:14
+Note à moi pour plus tard :
+Pour calculer l'accélération, on prend la somme des forces exercées sur l'objet i par tous les n autres objets qu'on divise par le produit des masses de tous les objets
+Les équations pour calculer l'accélération en X et en Y sont simplifiées au maximum.
+
+13/12/2021 : 09:30
+Projet pour plus tard : coder une class NewCorps qui crée un nouveau corps, à partir de la collision de deux corps initiaux.
+
+14/12/2021 : 12:57
+Serveur de calcul.
+
+01/01/2022 : 19:30
+Mon dieu c'est incroyable. Je viens de régler le problème du pas de temps ! Je suis incroyablement plus précis maintenant !!!!
+J'en reviens pas, le polytechnicien m'avait assuré que je ne pourrais pas régler ce problème car ce qui prenait le plus de temps c'est les calculs de trajectoire d'après lui.
+Or c'est faux !!! l'affichage des positions prend des milliers de fois plus de temps que les calculs !!!
+En résumé, en n'affichant les astres qu'à un certain intervalle (disons qu'on affiche les astres tous les 10.000 calculs de position), on gagne énormément en précision !!!
+Wow, je suis encore sous le choc car ça fait environ deux mois que j'avais complétement perdu espoir. Comme quoi il faut toujours persévérer !!! 
+
+08/01/2022 : 16:51
+Ca me bouffe tout mon temps... Mais j'adore ça, on avance bien le programme commence à avoir de la gueule
+Au menu du jour : Commentaire de philo, CC de maths et BAC Blanc à réviser !
+
+22/01/2022 : 10:50
+Projet : rajouter toutes les planètes du système solaire
+
+08/03/2022 : 9:58 
+Projet : tracer les trajectoires selon le référentiel
+Projet : incliner les plans des différentes orbites
+
+08/03/2022 : 20:41
+Ca a été compliqué mais j'y suis parvenu ! Désormais on peut voir à n'importe quel instant la trajectoire des astres selon le référentiel qu'on veut !!! super !
+Le plus gros soucis a été de bien identifier les différents paramètres pris en compte dans les calculs :
+Position de l'astre sur le quel on se fixe, position des astres, anciennes positions de l'axe où l'on se fixe, position du centre, de la caméra, etc...
+Prochaine étape : incliner les plans des différentes orbites !
+
+12/03/2022 : 08:26
+La 3D est installée, aucun problème détécté. Le soucis majeur rencontré est la racine carrée sqrt(). Elle fonctionne quand je l'utilise depuis la bibliothèque
+maths mais déconne quand j'utilise **(1/2). Enfin bref, le plus important c'est que ça fonctionne maintenant !
+Dernier projet principal : définir les composantes initales du vecteur vitesseau début du programme. Est-ce qu'il marche comme dans un plan en 2d ?
+En réalité j'ai déjà la réponse : oui lol. J'ai fait vérifié par mon prof de physique mes idées et elles correspondent à ce qu'il se passerait dans la vie réelle.
+Youpi ! 
+
+12/03/2022 : 12:19
+C'est avec émotion que j'écris ce message : le programme n'a jamais été aussi développé ! La 3d fonctionne parfaitement, les trajectoires sont précisemment
+calculées, le pas de temps est fonctionnel. Bref, toutou bienne comme on dit. Les possibles modifications seront ajouter une rotation dans les planètes, une
+texture, pourquoi pas un background avec de petites étoiles aussi.
+
+19/03/2022 : 10:53
+Projet : rajouter les lunes de Jupiter
+
+06/03/2023 : 16:53
+Avec une petite nostalgie que je lis tout ça ahah
+Je suis actuellement assis sur une chaîse d'une salle de classe de chimie au lycée Louis-Le-Grand
+Samuel fait sa présentation d'ADS sur l'accélération des particules et les futurs accélérateurs de particules. Moi je pianote sur mon ordinateur
+Quand je regarde ce programme, j'en suis fier, même s'il pourrait être largement amélioré
+En en parlant avec Amédée, un camarade de classe, je me rend compte que le pas de temps est un problème peut-être incorrigible.
+Par inégalité triangulaire tout simplement, on se décale d'une petite distance à chaque nouveau calculs, ce qui fait énormément décaler nos planètes après pas mal de temps.
+Enfin, je pense qu'on peut réellement corriger ceci en approximant l'erreur et en la corrigeant dans un certain coefficient à modifier. A voir.
+Pour plus tard : pourquoi pas accéder à une base de données permettant d'afficher les astres à une leur position à un certain instant. 
+Toujours en projet : pouvoir se fixer sur le référentiel de la terre, avec une vue dirigée vers le ciel afin d'observer 
+
+diary
