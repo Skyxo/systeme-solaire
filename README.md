@@ -18,23 +18,19 @@ with **PeasyCam** free-orbit navigation and a **ControlP5** control panel.
 | **HUD** | Live overlay: elapsed time, step, precision, FPS, camera coords & current POV infos. |
 | **Trajectories** | Per-planet path tracing with colour coding; clear or switch reference frame on the fly. |
 | **Focus Mode** | Sit “on board” the chosen planet (camera distance → 0) for immersive flight. |
-| **Extensible Data** | Planet parameters imported from `bodys_infos.csv` and wrapped in the `Body` class (mass, colour, radius, tilt, etc.). |
+| **Extensible Data** | Planet parameters loaded from `bodys_infos.csv` and wrapped in a `Body` class (mass, colour, radius, tilt…). |
 
 ---
 
 ## 📸 Screenshots
 
-![Plan view with trajectories](docs/captures/screenshot_orbits_01.png)
-
-![Clean circular view](docs/captures/screenshot_orbits_02.png)
-
-![Control panel window](docs/captures/screenshot_params.png)
-
-*(All captures generated on Windows 10, Processing 3.5.4)*
+| Overview with coloured trajectories | Clean circular view | Parameters window |
+|---|---|---|
+| ![Trajectories](https://github.com/user-attachments/assets/4b26b92d-619f-4d45-988e-2561e5a6033c) | ![Circular](https://github.com/user-attachments/assets/f560b850-8c69-4009-8e46-2d982b3bbc98) | <img alt="Parameters panel" src="https://github.com/user-attachments/assets/48ba21c0-222e-47e9-a928-19bb03082271" width="350"> |
 
 ---
 
-## Project Layout
+## 📂 Project Layout
 
 ```text
 solar-system/
