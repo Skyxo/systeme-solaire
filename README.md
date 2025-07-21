@@ -1,9 +1,9 @@
 # Solar-System 3-D Simulator ★ Processing.py
 
-Interactive, real-time 3-D simulation of our Solar System written in **Processing 3 – Python mode**  
-with **PeasyCam** free-orbit navigation and a **ControlP5** control panel.
+Real-time 3-D simulation of our Solar System built with **Processing 3 – Python mode**,  
+**PeasyCam** free-orbit navigation and a **ControlP5** command panel.
 
-> **Project history**: built in **2021**, when I was **16 y.o. (Terminale, final year of French high-school)** as a personal physics & coding challenge.
+> **Built in 2021, age 16 (Terminale)** – a personal project that taught me both physics and code.
 
 ---
 
@@ -11,100 +11,96 @@ with **PeasyCam** free-orbit navigation and a **ControlP5** control panel.
 
 | Area | Features |
 |------|----------|
-| **Orbital Mechanics** | Newtonian N-body integration (configurable `step` & `precision`). |
-| **Scalable Rendering** | Log-scaled radii & distance factors (`facteur`, `facteur_dessin`) so every planet fits in frame. |
-| **Free Camera** | Full 6-DOF orbit / zoom / roll via **PeasyCam**; adjustable speed (`c`/`w`). |
-| **Dual Windows** | **Simulation** viewport + **Parameters** panel (POV selection, toggles, trajectory controls…). |
-| **HUD** | Live overlay: elapsed time, step, precision, FPS, camera coords & current POV infos. |
-| **Trajectories** | Per-planet path tracing with colour coding; clear or switch reference frame on the fly. |
-| **Focus Mode** | Sit “on board” the chosen planet (camera distance → 0) for immersive flight. |
-| **Extensible Data** | Planet parameters loaded from `bodys_infos.csv` and wrapped in a `Body` class (mass, colour, radius, tilt…). |
+| **Orbital Mechanics** | Newtonian *N-body* integration (configurable `step` & `precision`). |
+| **Scalable Rendering** | Log-scaled radii + distance factors so every planet fits on screen; tweak with `+ / -`. |
+| **Free Camera** | Full 6-DOF orbit / zoom / roll via **PeasyCam**; adjustable speed (`c` / `w`). |
+| **Dual Windows** | **Simulation** viewport **+** **Parameters** panel (POV, toggles, trajectory tools…). |
+| **HUD Overlay** | Elapsed time, Δt, precision, FPS, camera coords, instant planet stats. |
+| **Trajectories** | Per-planet path tracing with colour coding; instant clear & reference-frame switch. |
+| **Focus Mode** | “On-board” view: camera snaps to the selected planet’s centre for an immersive ride. |
+| **Extensible Data** | Planet parameters loaded from `bodys_infos.csv` and wrapped in a `Body` class. |
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots & Tiny Story
 
-| Overview with coloured trajectories | Clean circular view | Parameters window |
+| Planet-centric frame (retrograde revealed) | Classical heliocentric frame | Parameters window |
 |---|---|---|
-| ![Trajectories](https://github.com/user-attachments/assets/4b26b92d-619f-4d45-988e-2561e5a6033c) | ![Circular](https://github.com/user-attachments/assets/f560b850-8c69-4009-8e46-2d982b3bbc98) | <img alt="Parameters panel" src="https://github.com/user-attachments/assets/48ba21c0-222e-47e9-a928-19bb03082271" width="350"> |
+| <img alt="Planet-centric view" src="https://github.com/user-attachments/assets/4b26b92d-619f-4d45-988e-2561e5a6033c" width="430"> | <img alt="Heliocentric view" src="https://github.com/user-attachments/assets/f560b850-8c69-4009-8e46-2d982b3bbc98" width="430"> | <img alt="Control panel" src="https://github.com/user-attachments/assets/48ba21c0-222e-47e9-a928-19bb03082271" width="270"> |
+
+*The **Switch Ref** button toggles between a heliocentric view and a planet-centric frame.  
+While playing with it I spotted the looping paths of Mars and Venus – my first self-discovery of “retrograde motion”, something I hadn’t yet seen in class.*
 
 ---
 
 ## 📂 Project Layout
 
 ```text
-solar-system/
-├── SolarSystem.pyde              # main Processing sketch
-├── bodys.py                      # Body class + CSV loader
-├── bodys_infos.csv               # planetary data
-├── docs/
-│   └── captures/                 # screenshots (png)
+systeme-solaire/
+├── SolarSystem.pyde            # main Processing sketch
+├── bodys.py                    # Body class + CSV loader
+├── bodys_infos.csv             # Planetary data (NASA-derived)
 └── README.md
 ````
 
 ---
 
-## Installation
+## ⚙️ Installation
 
-| Requirement        | Version                                            |
-| ------------------ | -------------------------------------------------- |
-| **Processing 3.x** | ≥ 3.5.4                                            |
-| **Python Mode**    | via *Contribution Manager*                         |
-| **Libraries**      | `peasycam`, `controlP5` (install from *Libraries*) |
-| **Java**           | JDK 8 or 11                                        |
+| Requirement        | Version                    |
+| ------------------ | -------------------------- |
+| **Processing 3.x** | ≥ 3.5.4                    |
+| **Python Mode**    | via *Contribution Manager* |
+| **Libraries**      | `peasycam`, `controlP5`    |
+| **Java**           | JDK 8 or 11                |
 
 ```bash
 git clone https://github.com/Skyxo/systeme-solaire.git
 cd systeme-solaire
-
-# open SolarSystem.pyde in Processing, switch to Python mode and press ▶
+# Open SolarSystem.pyde in Processing (Python mode) and press ▶
 ```
 
 ---
 
-## Controls
+## 🎮 Key Controls
 
-| Action                        | Key                   |
-| ----------------------------- | --------------------- |
-| Orbit camera (pitch / yaw)    | `z` / `s` / `q` / `d` |
-| Roll camera                   | `a` / `e`             |
-| Zoom in / out                 | `Space` / `Ctrl`      |
-| Camera speed ±                | `c` / `w`             |
-| Increase / decrease Δt        | `↑` / `↓`             |
-| Increase / decrease precision | `→` / `←`             |
-| Planet scale ±                | `+` / `-`             |
+| Action              | Key                |
+| ------------------- | ------------------ |
+| Orbit / pitch / yaw | `z`, `s`, `q`, `d` |
+| Roll                | `a`, `e`           |
+| Zoom in / out       | `Space`, `Ctrl`    |
+| Camera speed ±      | `c`, `w`           |
+| Δt ±                | `↑`, `↓`           |
+| Precision ±         | `→`, `←`           |
+| Planet scale ±      | `+`, `-`           |
 
-All other toggles (HUD, names, trajectories, lock, focus, pause…) live in the **Parameters** window.
-
----
-
-## Quick Tips
-
-1. **Pick a POV** in the Parameters window to centre on any planet; tick **Lock** to stay locked.
-2. Enable **Traj.** to trace selected orbits; switch **Ref** to render in a planet-centred frame.
-3. Turn on **Focus** for a cockpit-style view on the active body.
-4. Adapt `step` and `precision` for the accuracy / speed trade-off you need.
+All other toggles (HUD, Names, Traj., Lock, Focus, Pause…) live in the **Parameters** window.
 
 ---
 
-## To Do
+## 💡 Tips
 
-* Relativistic corrections & tidal forces
-* High-res textures / ring meshes
-* Moon & minor-body catalogue
-* CSV / OBJ export of trajectories
-* Port to Processing 4 or PyOpenGL
+1. **Select a POV** and tick **Lock** to stay centred on a body.
+2. Toggle **Traj.** and press **Switch Ref** to compare heliocentric vs planet-centric orbits.
+3. Activate **Focus** for a cockpit-style ride.
+4. Adjust `step` and `precision` to balance speed vs accuracy.
 
 ---
 
-## Licence & Credits
+## 🛣️ Roadmap
 
-Code released under the **MIT Licence**.
-Third-party libraries:
+* Relativistic corrections.
+* High-res textures & ring meshes.
+* Moon / asteroid catalogue.
+* CSV / OBJ export of trajectories.
+* Port to Processing 4 or PyOpenGL.
 
-* **PeasyCam** © Jonathan Feinberg
-* **ControlP5** © Andreas Schlegel
+---
 
+## 📜 Licence & Credits
+
+Code licensed under **MIT**.
+Libraries: **PeasyCam** © Jonathan Feinberg, **ControlP5** © Andreas Schlegel.
 Planetary data simplified from NASA open datasets.
 
-Made with passion by **Skyxo** (age 16), 2021.
+Made with passion by **Skyxo** – 16 years old, 2021.
